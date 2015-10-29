@@ -92,7 +92,7 @@ public class Main {
                     Session session = request.session();
                     session.attribute("username", username);
 
-                    response.redirect("/");
+                    response.redirect(request.headers("Referer"));
                     return "";
                 })
         );
@@ -114,7 +114,7 @@ public class Main {
                         messages.add(message);
                     }catch (Exception e){
                     }
-                    response.redirect("/");
+                    response.redirect(request.headers("Referer"));
                     return"";
                 })
         );
